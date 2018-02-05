@@ -5,13 +5,10 @@ If you provide a handle as well, it will register you to the server instead
 """
 import argparse
 import json
-import time
 import os
 import sys
 from datetime import datetime, timedelta
 from rumble_client.client import Client
-
-
 
 
 def options():
@@ -30,11 +27,11 @@ def startup():
         config = json.loads(config)
         return config['user'], config['password'], config['handle'], config['server_url']
 
-    print 'Rumble-CLI'
-    user = raw_input('Username: ')
-    password = raw_input('Password: ')
-    handle = raw_input('Handle: ')
-    server_url = raw_input('Server URL: ')
+    print('Rumble-CLI')
+    user = input('Username: ')
+    password = input('Password: ')
+    handle = input('Handle: ')
+    server_url = input('Server URL: ')
 
     s = json.dumps(dict(user=user, password=password, handle=handle, server_url=server_url))
     open('config.json', 'w').write(s)
@@ -57,21 +54,21 @@ def main(username, password, handle, server_url):
     user = client.login(username, password)
 
     #select room
-    print client.get_rooms()
+    print(client.get_rooms())
     room = 'room0'
     time = datetime.utcnow().replace(microsecond=0)
     start = time - timedelta(days=1)
     end = time + timedelta(days=1)
-    print client.join_room(room)
+    print(client.join_room(room))
 
     while True:
-        print '==============LINE=BREAK=============='
-        user_input = raw_input('> ')
+        print('==============LINE=BREAK==============')
+        user_input = input('> ')
         parse_input(user_input, client, room, commands)
         messages = client.get_messages(room, start, end)
         os.system('cls')
         for m in messages["result"]:
-            print "[{}:{}] {}".format(m[1], m[0], m[2])
+            print("[{}:{}] {}".format(m[1], m[0], m[2]))
 
 def parse_input(input, client, room, commands):
     # check to see if input is command
@@ -82,13 +79,13 @@ def parse_input(input, client, room, commands):
         commands[command](*args)
     # if not treat it as a message, send the message
     else:
-        print client.send_message(room, input)
+        print(client.send_message(room, input))
 
 def help():
     help_file = open('README.md')
     for line in help_file:
         print(line)
-    raw_input('PRESS ANY KEY TO CONTINUE')
+    input('PRESS ANY KEY TO CONTINUE')
 
 if __name__ == '__main__':
     user, password, handle, server_url = startup()
