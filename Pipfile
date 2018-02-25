@@ -8,6 +8,7 @@ name = "pypi"
 [packages]
 
 requests = "*"
+"d65e128" = {path = "C:/Users/Blobl/Documents/Git/Rumble-Client-Python", editable = true}
 
 
 [dev-packages]

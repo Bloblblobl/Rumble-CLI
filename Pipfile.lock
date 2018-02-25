@@ -1,18 +1,18 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "33a0ec7c8e3bae6f62dd618f847de92ece20e2bd4efb496927e2524b9c7b8df8"
+            "sha256": "4266478742f4a5dae697079d1afcc566426ef5f185596760d507bb785da2df05"
         },
         "host-environment-markers": {
             "implementation_name": "cpython",
-            "implementation_version": "3.6.0",
+            "implementation_version": "3.6.4",
             "os_name": "nt",
             "platform_machine": "AMD64",
             "platform_python_implementation": "CPython",
             "platform_release": "10",
             "platform_system": "Windows",
             "platform_version": "10.0.16299",
-            "python_full_version": "3.6.0",
+            "python_full_version": "3.6.4",
             "python_version": "3.6",
             "sys_platform": "win32"
         },
@@ -42,6 +42,10 @@
                 "sha256:84ab92ed1c4d4f16916e05906b6b75a6c0fb5db821cc65e70cbd64a3e2a5eaae"
             ],
             "version": "==3.0.4"
+        },
+        "d65e128": {
+            "editable": true,
+            "path": "C:/Users/Blobl/Documents/Git/Rumble-Client-Python"
         },
         "idna": {
             "hashes": [
